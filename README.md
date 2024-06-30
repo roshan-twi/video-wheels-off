@@ -139,7 +139,7 @@ SID: RMc0076da31213941de205c22641a00cd2
 
 ![](images/image67.png)
 ```Javascript
-const accountSid = 'AC0fe10850d5dc75aba1068262c3cc6c8a';
+const accountSid = '';
 const authToken = '';
 const client = require('twilio')(accountSid, authToken);
 
