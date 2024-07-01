@@ -135,9 +135,8 @@ SID: RMc0076da31213941de205c22641a00cd2
 
 ![](images/image17.png)
 
+PSTN User added using twilio client.
 ![](images/image7.png)
-
-![](images/image67.png)
 ```Javascript
 const accountSid = '';
 const authToken = '';
@@ -158,6 +157,50 @@ Peer to Peer room
 Twilio Video offers two distinct types of rooms for video communication: Group Rooms and Peer-to-Peer (P2P) Rooms. Group Rooms utilize server-based routing, where media streams are sent to Twilio's servers and then distributed to participants. This architecture supports larger groups by offloading the processing and bandwidth management to Twilio’s infrastructure, providing optimized media quality and the ability to handle complex network environments. Group Rooms also support server-side recording, making them ideal for larger meetings, webinars, and scenarios where recording the session is necessary. The centralized bandwidth usage and Twilio's media handling capabilities ensure a consistent and reliable experience for participants.
 
 In contrast, P2P Rooms establish direct connections between participants without routing media through Twilio's servers. This approach can offer lower latency for smaller groups, typically up to 10 participants, as it eliminates the intermediary server. However, it requires each participant to maintain direct connections with every other participant, leading to higher bandwidth usage and potential issues with network configurations, such as firewalls and NAT. P2P Rooms are suitable for small team meetings, one-on-one calls, or situations where low latency is critical. They provide a straightforward setup but do not support server-side recording, making them less suitable for larger groups or scenarios needing advanced media processing and centralized control.
+
+**Compositions**
+Create an audio-only composition.
+
+```json
+curl -X POST "https://video.twilio.com/v1/Compositions" \ 
+--data-urlencode "AudioSources=RT3260a277e4fa97e66ba3a72eacc2b490" \
+--data-urlencode "StatusCallback=https://webhook.site/6c34827f-29ed-407f-b86e-d20e9363f5e4" \                  
+--data-urlencode "Format=mp4" \                                
+--data-urlencode "RoomSid=RM09d0c0d0a767ce89c5c1a51f340ab774" \
+-u $TWILIO_ACCOUNT_SID:$TWILIO_AUTH_TOKEN
+```
+Response
+```Json
+{"trim": true, "room_sid": "RM09d0c0d0a767ce89c5c1a51f340ab774", "duration": 0, "size": 0, "audio_sources_excluded": [],
+"sid": "CJ7acc561efb30deeaa31149a939832cbb", "status_callback_method": "POST", "status": "enqueued", "format": "mp4", "bitrate": 0, "video_layout": {}, "date_completed": null, "url": "https://video.twilio.com/v1/Compositions/CJ7acc561efb30deeaa31149a939832cbb",
+"media_external_location": null, "date_deleted": null, "account_sid": "AC0fe10850d5dc75aba1068262c3cc6c8a", "audio_sources": ["RT3260a277e4fa97e66ba3a72eacc2b490"], "date_created": "2024-06-26T13:38:33Z", "resolution": "640x480", "status_callback": "https://webhook.site/6c34827f-29ed-407f-b86e-d20e9363f5e4", "links": {"media": "https://video.twilio.com/v1/Compositions/CJ7acc561efb30deeaa31149a939832cbb/Media"}
+```
+
+Create a video grid composition
+
+Request
+```json
+VIDEO_LAYOUT_OBJ=$(cat << EOF
+{
+  "transcode": {"video_sources":["RT2bb84ef1da148a38b93456d1ded44457"]}
+}
+EOF
+)
+curl -X POST "https://video.twilio.com/v1/Compositions" \
+--data-urlencode "VideoLayout=$VIDEO_LAYOUT_OBJ" \
+--data-urlencode "StatusCallback=https://webhook.site/6c34827f-29ed-407f-b86e-d20e9363f5e4" \
+--data-urlencode "Format=mp4" \
+--data-urlencode "RoomSid=RM09d0c0d0a767ce89c5c1a51f340ab774" \
+-u $TWILIO_ACCOUNT_SID:$TWILIO_AUTH_TOKEN
+```
+Response
+```json
+{"trim": true, "room_sid": "RM09d0c0d0a767ce89c5c1a51f340ab774", "duration": 0, "size": 0, "audio_sources_excluded": [], "sid": "CJ5e913a918c2674bb63f170af1c5b5444",
+ "status_callback_method": "POST", "status": "enqueued", "format": "mp4", "bitrate": 0, "video_layout": {"transcode": {"z_pos": 0, "reuse": "show_oldest", "x_pos": 0, "max_columns": null, "cells_excluded": [], "video_sources_excluded": [], "height": null, "width": null, "max_rows": null, "y_pos": 0, 
+ "video_sources": ["RT2bb84ef1da148a38b93456d1ded44457"]}}, "date_completed": null, "url": "https://video.twilio.com/v1/Compositions/CJ5e913a918c2674bb63f170af1c5b5444", "media_external_location": null, "date_deleted": null, 
+ "account_sid": "AC0fe10850d5dc75aba1068262c3cc6c8a", "audio_sources": [], "date_created": "2024-06-26T13:41:07Z", "resolution": "640x480", "status_callback": "https://webhook.site/6c34827f-29ed-407f-b86e-d20e9363f5e4", "links": {"media": "https://video.twilio.com/v1/Compositions/CJ5e913a918c2674bb63f170af1c5b5444/Media"}}
+```
+
 
 ![](images/image.png)
 
