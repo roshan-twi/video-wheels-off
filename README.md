@@ -161,7 +161,7 @@ In contrast, P2P Rooms establish direct connections between participants without
 **Compositions**
 Create an audio-only composition.
 
-```json
+```
 curl -X POST "https://video.twilio.com/v1/Compositions" \ 
 --data-urlencode "AudioSources=RT3260a277e4fa97e66ba3a72eacc2b490" \
 --data-urlencode "StatusCallback=https://webhook.site/6c34827f-29ed-407f-b86e-d20e9363f5e4" \                  
@@ -179,7 +179,7 @@ Response
 Create a video grid composition
 
 Request
-```json
+```
 VIDEO_LAYOUT_OBJ=$(cat << EOF
 {
   "transcode": {"video_sources":["RT2bb84ef1da148a38b93456d1ded44457"]}
@@ -194,21 +194,43 @@ curl -X POST "https://video.twilio.com/v1/Compositions" \
 -u $TWILIO_ACCOUNT_SID:$TWILIO_AUTH_TOKEN
 ```
 Response
-```json
+```Json
 {"trim": true, "room_sid": "RM09d0c0d0a767ce89c5c1a51f340ab774", "duration": 0, "size": 0, "audio_sources_excluded": [], "sid": "CJ5e913a918c2674bb63f170af1c5b5444",
  "status_callback_method": "POST", "status": "enqueued", "format": "mp4", "bitrate": 0, "video_layout": {"transcode": {"z_pos": 0, "reuse": "show_oldest", "x_pos": 0, "max_columns": null, "cells_excluded": [], "video_sources_excluded": [], "height": null, "width": null, "max_rows": null, "y_pos": 0, 
  "video_sources": ["RT2bb84ef1da148a38b93456d1ded44457"]}}, "date_completed": null, "url": "https://video.twilio.com/v1/Compositions/CJ5e913a918c2674bb63f170af1c5b5444", "media_external_location": null, "date_deleted": null, 
  "account_sid": "AC0fe10850d5dc75aba1068262c3cc6c8a", "audio_sources": [], "date_created": "2024-06-26T13:41:07Z", "resolution": "640x480", "status_callback": "https://webhook.site/6c34827f-29ed-407f-b86e-d20e9363f5e4", "links": {"media": "https://video.twilio.com/v1/Compositions/CJ5e913a918c2674bb63f170af1c5b5444/Media"}}
 ```
 
+**Programmable-Video Bot (a Slack App)**
+![](images/image27.png)
 
-![](images/image.png)
+![](images/image60.png)
 
-![](images/image.png)
+![](images/image38.png)
 
-![](images/image.png)
+![](images/image65.png)
 
-![](images/image.png)
+![](images/image31.png)
+
+![](images/image16.png)
+
+![](images/image18.png)
+
+![](images/image44.png)
+
+![](images/image10.png)
+
+![](images/image30.png)
+
+![](images/image20.png)
+
+![](images/image66.png)
+
+![](images/image52.png)
+
+![](images/image5.png)
+
+![](images/quick/compositionSlack.png)
 
 ![](images/image.png)
 
