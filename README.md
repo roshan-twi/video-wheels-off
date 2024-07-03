@@ -260,5 +260,16 @@ https://kibana.us1.eak.twilio.com/video/goto/95220a39e86554da63ddf35ee8b1d98c
 
 ![](images/image70.png)
 
+visualization for the Network Quality Scores
+
 ![](images/image28.png)
+
+**Quantico**
+```sql
+select * from `qtco-customer-support.prod.app_api_api_access_last_14_days`
+where (account_sid = 'Redacted' or parent_account_sid = 'Redacted')
+and uri="/Compositions" order by timestamp desc
+``` 
+
+![](images/image47.png)
 
