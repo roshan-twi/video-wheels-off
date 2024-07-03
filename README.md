@@ -265,6 +265,7 @@ visualization for the Network Quality Scores
 ![](images/image28.png)
 
 **Quantico**
+Using a SQL Query, find your API Request for the compositions you created.
 ```sql
 select * from `qtco-customer-support.prod.app_api_api_access_last_14_days`
 where (account_sid = 'Redacted' or parent_account_sid = 'Redacted')
@@ -273,3 +274,18 @@ and uri="/Compositions" order by timestamp desc
 
 ![](images/image47.png)
 
+**Android Studio**
+![](images/image39.png)
+
+![](images/image13.png)
+
+![](images/image61.png)
+
+**XCode**
+![](images/xcode01.png)
+
+![](images/xcode02.png)
+
+![](images/quick/xcode1.jpeg)
+
+![](images/quick/xcode2.jpeg)
