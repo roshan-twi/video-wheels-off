@@ -202,9 +202,6 @@ Response
  "account_sid": "AC0fe10850d5dc75aba1068262c3cc6c8a", "audio_sources": [], "date_created": "2024-06-26T13:41:07Z", "resolution": "640x480", "status_callback": "https://webhook.site/6c34827f-29ed-407f-b86e-d20e9363f5e4", "links": {"media": "https://video.twilio.com/v1/Compositions/CJ5e913a918c2674bb63f170af1c5b5444/Media"}}
 ```
 **Compositions files**
-![](composition/CJ7acc561efb30deeaa31149a939832cbb.mp4)
-
-![](composition/CJ5e913a918c2674bb63f170af1c5b5444.mp4)
 
 https://github.com/roshan-twi/video-wheels-off/assets/159227764/5009e5a6-117c-4ed1-a35c-b499925a8a6a
 
