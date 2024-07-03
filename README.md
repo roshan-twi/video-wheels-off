@@ -159,8 +159,9 @@ Twilio Video offers two distinct types of rooms for video communication: Group R
 In contrast, P2P Rooms establish direct connections between participants without routing media through Twilio's servers. This approach can offer lower latency for smaller groups, typically up to 10 participants, as it eliminates the intermediary server. However, it requires each participant to maintain direct connections with every other participant, leading to higher bandwidth usage and potential issues with network configurations, such as firewalls and NAT. P2P Rooms are suitable for small team meetings, one-on-one calls, or situations where low latency is critical. They provide a straightforward setup but do not support server-side recording, making them less suitable for larger groups or scenarios needing advanced media processing and centralized control.
 
 **Compositions**
-Create an audio-only composition.
 
+Create an audio-only composition.
+Request
 ```
 curl -X POST "https://video.twilio.com/v1/Compositions" \ 
 --data-urlencode "AudioSources=RT3260a277e4fa97e66ba3a72eacc2b490" \
@@ -201,7 +202,7 @@ Response
  "account_sid": "AC0fe10850d5dc75aba1068262c3cc6c8a", "audio_sources": [], "date_created": "2024-06-26T13:41:07Z", "resolution": "640x480", "status_callback": "https://webhook.site/6c34827f-29ed-407f-b86e-d20e9363f5e4", "links": {"media": "https://video.twilio.com/v1/Compositions/CJ5e913a918c2674bb63f170af1c5b5444/Media"}}
 ```
 
-**Programmable-Video Bot (a Slack App)**
+**Programmable-Video Bot, Media Recordings Bot (Slack Apps)**
 ![](images/image27.png)
 
 ![](images/image60.png)
@@ -232,8 +233,32 @@ Response
 
 ![](images/quick/compositionSlack.png)
 
-![](images/image.png)
+**Kibana**
 
-![](images/image.png)
+Change Index to sdki-rooms* create a "Discover URL" that displays media region, codecs, vms server sid, whether the participant was "recorded on connect" for all of the participants in one of your group rooms.
+https://kibana.us1.eak.twilio.com/video/goto/2fd49a782c60308244504462226b47b5
 
-![](images/image.png)
+![](images/image21.png)
+
+Change Index to video-insights* create a "Discover URL" that displays all device, manufacture, OS, browser version, SDK version information for the participants. 
+https://kibana.us1.eak.twilio.com/video/goto/1a98e9340c757f5deb643174312a5994
+
+![](images/image68.png)
+
+Change Index to video-vms-reports* create a "Discover URL" that displays all actual bandwidth for each participant in one room
+https://kibana.us1.eak.twilio.com/video/goto/8f3acacee9deb9d318c6c9caf0778c60
+
+![](images/image32.png)
+
+Change Index to video-voice-signaling* create a "Discover URL" that displays Participant SID, Call SID, Room SID, Identity, Room Name for the PSTN participant in one room. 
+https://kibana.us1.eak.twilio.com/video/goto/957ab1ec137f2180eb2e4627777a6b84
+
+![](images/image3.png)
+
+Create a "Discover URL" that displays all the Network Quality scores for all participants in one of your group rooms
+https://kibana.us1.eak.twilio.com/video/goto/95220a39e86554da63ddf35ee8b1d98c
+
+![](images/image70.png)
+
+![](images/image28.png)
+
